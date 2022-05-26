@@ -9,8 +9,11 @@ class Overview extends React.Component {
       <div>
         <ul>
           {
-            this.props.taskList.map((task) => {
-              return <li key={task.id}>{task.title}</li>
+            this.props.taskList.map((t) => {
+              if (t.title !== "" && t.title !== undefined)
+                return <li key={t.id}>{t.title}</li>
+              else 
+                return null;
             })
           }
         </ul>

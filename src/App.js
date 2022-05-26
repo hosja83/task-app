@@ -1,6 +1,6 @@
 //App.js
 
-import "./App.css";
+import "./styles/App.sass";
 import React, { Component } from "react";
 import Overview from "./components/Overview";
 import uniqid from "uniqid";
@@ -50,18 +50,20 @@ class App extends Component {
     const { tasks, task } = this.state;
 
     return (
-      <div>
+      <div className="page">
+        <h1 id="task-list-header">Task List</h1>
         <form>
-          <label htmlFor="task">Enter Task: </label>
+          <label htmlFor="task-input">Enter Task: </label>
           <input
             onChange={this.updateTask}
             value={task.title}
             type="text"
-            id="task">
+            id="task-input">
           </input>
-          <button onClick={this.addTask} type="submit">Submit</button>
+          <div className="button-container">
+            <button onClick={this.addTask} type="submit">Create Task</button>
+          </div>
         </form>
-        <h1 id="task-list">Task List</h1>
         <Overview taskList={tasks} />
       </div>
     );
